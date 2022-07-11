@@ -1,56 +1,47 @@
 # Deploying a React App* to GitHub Pages
 
-Things I added:
+# Things I added:
 
-# A shortcut in VSCode: 
+# Two shortcuts in VSCode: 
     
-  
 
-    "Add ghpages": {
+   1. "Add ghpages": {
     "scope": "json",
     "prefix": "ghphome",
     "body": [
-    "\"homepage\": \"https://gokserpirik.github.io/$1\"," ],
+    "\"homepage\": \"https://{yourUsername}.github.io/$1\"," ],
     "description": "choose the homepage of the project"},
+    
+    2. "npm build for GHpages": {
+		"scope": "json",
+		"prefix": "gphbuild",
+		"body": [
+			"\"predeploy\": \"npm run build \",",
+		   	"\"deploy\": \"gh-pages -d build\",",
+
+		],
+		"description": "adds npm settings for ghpages — should be inside scripts"
+	}
+
 
 
 ## Requires the knowledge of:
 https://stackoverflow.com/questions/15637429/how-to-escape-double-quotes-in-json
 
 
-\* created using `create-react-app`
+# If you get this error, here is the solution
+## ref: https://stackoverflow.com/questions/63964575/fatal-a-branch-named-gh-pages-already-exists
 
-# Introduction
+    fatal: A branch named 'gh-pages' already exists
 
-In this tutorial, I'll show you how you can create a React app and deploy it to GitHub Pages.
+    DELETE THIS: node_modules/.cache/gh-pages
 
-To create the React app, I'll be using [`create-react-app`](https://create-react-app.dev/), which is a tool people can use to create a React app from scratch. To deploy the React app, I'll be using [`gh-pages`](https://github.com/tschaub/gh-pages), which is an npm package people can use to deploy things to [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages), a free web hosting service provided by GitHub.
+    Deletes remotes/origin/gh-page:
+    git fetch --prune
+    
 
-If you follow along with this tutorial, you'll end up with a new React app—hosted on GitHub Pages—which you can then customize.
 
-# Tutorial
-
-## Prerequisites
-
-1. [Node and npm](https://nodejs.org/en/download/) are installed. Here are the versions I'll be using while making this tutorial:
-
-    ```shell
-    $ node --version
-    v16.13.2
-
-    $ npm --version
-    8.1.2
-    ```
-    > Installing npm adds two commands to the system—`npm` and `npx`—both of which I'll be using while making this tutorial.
-
-2. [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) is installed. Here's the version I'll be using while making this tutorial:
-
-    ```shell
-    $ git --version
-    git version 2.29.1.windows.1
-    ```
-
-3. A [GitHub](https://github.com/signup) account. :octocat:
+-----------------------
 
 ## Procedure
 
@@ -82,32 +73,7 @@ If you follow along with this tutorial, you'll end up with a new React app—hos
 
 At this point, your GitHub account contains an empty repository, having the name and privacy type that you specified.
 
-### 2. Create a React app
 
-1. Create a React app named `my-app`:
-
-    > In case you want to use a different name from `my-app` (e.g. `web-ui`), you can accomplish that by replacing all occurrences of `my-app` in this tutorial, with that other name (i.e. `my-app` --> `web-ui`).
-  
-    ```shell
-    $ npx create-react-app my-app
-    ```
-
-    > That command will create a React app written in JavaScript. To create one written in [TypeScript](https://create-react-app.dev/docs/adding-typescript/#installation), you can issue this command instead:
-    > ```shell
-    > $ npx create-react-app my-app --template typescript
-    > ```
-
-    That command will create a new folder named `my-app`, which will contain the source code of a React app.
-
-    > In addition to containing the source code of the React app, that folder is also a Git repository. That characteristic of the folder will come into play in Step 6.    
-
-2. Enter the newly-created folder:
-  
-    ```shell
-    $ cd my-app
-    ```
-
-At this point, there is a React app on your computer and you are in the folder that contains its source code. All of the remaining commands shown in this tutorial can be run from that folder.
 
 ### 3. Install the `gh-pages` npm package
 
@@ -284,3 +250,67 @@ Note: I specified the avatars using HTML because, when I did so using Markdown,
 </a>
 
 This list is maintained manually—for now—and includes (a) each person who submitted a pull request that was eventually merged into `master`, and (b) each person who contributed in a different way (e.g. providing constructive feedback) and who approved of me including them in this list.
+
+
+I know these, and I assume you know too
+
+# Introduction
+
+In this tutorial, I'll show you how you can create a React app and deploy it to GitHub Pages.
+
+To create the React app, I'll be using [`create-react-app`](https://create-react-app.dev/), which is a tool people can use to create a React app from scratch. To deploy the React app, I'll be using [`gh-pages`](https://github.com/tschaub/gh-pages), which is an npm package people can use to deploy things to [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages), a free web hosting service provided by GitHub.
+
+If you follow along with this tutorial, you'll end up with a new React app—hosted on GitHub Pages—which you can then customize.
+
+# Tutorial
+
+## Prerequisites
+
+1. [Node and npm](https://nodejs.org/en/download/) are installed. Here are the versions I'll be using while making this tutorial:
+
+    ```shell
+    $ node --version
+    v16.13.2
+
+    $ npm --version
+    8.1.2
+    ```
+    > Installing npm adds two commands to the system—`npm` and `npx`—both of which I'll be using while making this tutorial.
+
+2. [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) is installed. Here's the version I'll be using while making this tutorial:
+
+    ```shell
+    $ git --version
+    git version 2.29.1.windows.1
+    ```
+
+3. A [GitHub](https://github.com/signup) account. :octocat:
+
+----
+
+### 2. Create a React app
+
+1. Create a React app named `my-app`:
+
+    > In case you want to use a different name from `my-app` (e.g. `web-ui`), you can accomplish that by replacing all occurrences of `my-app` in this tutorial, with that other name (i.e. `my-app` --> `web-ui`).
+  
+    ```shell
+    $ npx create-react-app my-app
+    ```
+
+    > That command will create a React app written in JavaScript. To create one written in [TypeScript](https://create-react-app.dev/docs/adding-typescript/#installation), you can issue this command instead:
+    > ```shell
+    > $ npx create-react-app my-app --template typescript
+    > ```
+
+    That command will create a new folder named `my-app`, which will contain the source code of a React app.
+
+    > In addition to containing the source code of the React app, that folder is also a Git repository. That characteristic of the folder will come into play in Step 6.    
+
+2. Enter the newly-created folder:
+  
+    ```shell
+    $ cd my-app
+    ```
+
+At this point, there is a React app on your computer and you are in the folder that contains its source code. All of the remaining commands shown in this tutorial can be run from that folder.
