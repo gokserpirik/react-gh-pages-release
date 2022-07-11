@@ -1,5 +1,12 @@
 # Deploying a React App* to GitHub Pages
 
+Things I added:
+
+# A shortcut in VSCode: 
+## Requires the knowledge of:
+https://stackoverflow.com/questions/15637429/how-to-escape-double-quotes-in-json
+
+
 \* created using `create-react-app`
 
 # Introduction
