@@ -3,16 +3,17 @@
 Things I added:
 
 # A shortcut in VSCode: 
+  
   <code> 
-    "Add ghpages": {
-		"scope": "json",
-		"prefix": "ghphome",
-		"body": [
-			"\"homepage\": \"https://gokserpirik.github.io/$1\",",
+      "Add ghpages": {
+      "scope": "json",
+      "prefix": "ghphome",
+      "body": [
+      "\"homepage\": \"https://gokserpirik.github.io/$1\",",
 
-		],
-		"description": "choose the homepage of the project"
-	},
+      ],
+      "description": "choose the homepage of the project"
+      },
   </code>
 
 ## Requires the knowledge of:
