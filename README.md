@@ -3,18 +3,16 @@
 Things I added:
 
 # A shortcut in VSCode: 
+    
   
-  <code> 
-      "Add ghpages": {
-      "scope": "json",
-      "prefix": "ghphome",
-      "body": [
-      "\"homepage\": \"https://gokserpirik.github.io/$1\",",
 
-      ],
-      "description": "choose the homepage of the project"
-      },
-  </code>
+    "Add ghpages": {
+    "scope": "json",
+    "prefix": "ghphome",
+    "body": [
+    "\"homepage\": \"https://gokserpirik.github.io/$1\"," ],
+    "description": "choose the homepage of the project"},
+
 
 ## Requires the knowledge of:
 https://stackoverflow.com/questions/15637429/how-to-escape-double-quotes-in-json
