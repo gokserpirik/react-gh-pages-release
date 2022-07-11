@@ -5,22 +5,24 @@
 # Two shortcuts in VSCode: 
     
 
-   1. "Add ghpages": {
-    "scope": "json",
-    "prefix": "ghphome",
-    "body": [
-    "\"homepage\": \"https://{yourUsername}.github.io/$1\"," ],
-    "description": "choose the homepage of the project"},
-    
-    2. "npm build for GHpages": {
-		"scope": "json",
-		"prefix": "gphbuild",
-		"body": [
-			"\"predeploy\": \"npm run build \",",
-		   	"\"deploy\": \"gh-pages -d build\",",
 
-		],
-		"description": "adds npm settings for ghpages — should be inside scripts"
+	"Add ghpages": {
+	"scope": "json",
+	"prefix": "ghphome",
+	"body": [
+	"\"homepage\": \"https://{yourUsername}.github.io/$1\"," ],
+	"description": "choose the homepage of the project"},
+	
+
+	"npm build for GHpages": {
+	"scope": "json",
+	"prefix": "gphbuild",
+	"body": [
+	"\"predeploy\": \"npm run build \",",
+	"\"deploy\": \"gh-pages -d build\",",
+
+	],
+	"description": "adds npm settings for ghpages — should be inside scripts"
 	}
 
 
