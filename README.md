@@ -1,6 +1,6 @@
 # Deploying a React App* to GitHub Pages
 
-# Things I added:
+# Things I recommend to use the package faster:
 
 # Two shortcuts in VSCode: 
     
